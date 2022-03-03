@@ -13,24 +13,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Composable
-fun HomeScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.LightGray), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Top
-    ) {
-
-        val repository = Repository()
-        val setData = repository.setData()
-
-        LazyColumn(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(3.dp)){
-            items(setData.size) {
-                Active(data = setData[it])
-            }
-        }
-    }
-}
 
 @Composable
 fun GroupScreen() {

@@ -2,4 +2,5 @@
     <string name="app_name">LearnCampFacebook</string>
     <string name="message">Select your favorite social network and share our icons with your contacts or friends, if you do not have these social networks copy the link and paste it in the one you use. For more information</string>
     <string name="messager">Is there anyone who doesn\'t love listening to stories? Right from our toddler days, we humans have this insatiable craving for tales, of the known and the unknown, that is satisfied first by our parents and then a plethora of other sources. Go through a host of fascinating stories from KidsGen</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 </resources>

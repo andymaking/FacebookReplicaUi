@@ -56,19 +56,22 @@ fun TopBar() {
     }
 }
 
-@OptIn(ExperimentalPagerApi::class, ExperimentalFoundationApi::class)
+
+@ExperimentalFoundationApi
+@ExperimentalPagerApi
 @Composable
-fun ContentView() {
+fun ContentView(navigateToProfile: (Data) -> Unit) {
     val pagerState = rememberPagerState()
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.White)) {
         TableRow(pagerState = pagerState)
-        PagerContent(pagerState = pagerState)
+        PagerContent(pagerState = pagerState, navigateToProfile = navigateToProfile)
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
+
+@ExperimentalPagerApi
 @Composable
 fun TableRow(pagerState: PagerState) {
 
@@ -151,22 +154,22 @@ fun TableRow(pagerState: PagerState) {
 }
 
 
+@ExperimentalPagerApi
 @ExperimentalFoundationApi
-@OptIn(ExperimentalPagerApi::class)
 @Composable
-fun PagerContent(pagerState: PagerState) {
+fun PagerContent(pagerState: PagerState,navigateToProfile: (Data) -> Unit) {
 
     CompositionLocalProvider(LocalOverScrollConfiguration provides null) {
 
         Box(modifier = Modifier.fillMaxSize()){
             HorizontalPager(count = 6, state = pagerState) { page ->
                 when(page){
-                    0 -> HomeScreen()
+                    0 -> HomeScreen (navigateToProfile = navigateToProfile)
                     1 -> GroupScreen()
-                    3 -> VideoScreen()
-                    4 -> ProfileScreen()
-                    5 -> NotificationScreen()
-                    6 -> MenuScreen()
+                    2 -> VideoScreen()
+                    3 -> ProfileScreen()
+                    4 -> NotificationScreen()
+                    5-> MenuScreen()
                 }
             }
         }
